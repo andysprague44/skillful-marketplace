@@ -26,3 +26,24 @@ git clone <url>
 
 5. Build! example:
     - `/plan I want to build a beautiful marketplace to sell my <really cool t-shirts|hamsters|artwork|surf boards|shoes and/or AI data infrastructure`
+
+## CRUD demo API (FastAPI)
+
+A minimal in-memory API lives under `api/`. It includes users, listings, HTTP Basic auth, and [Swagger UI](http://localhost:8000/docs) at `/docs`.
+
+### Setup and run (macOS / Linux)
+
+```bash
+cd api
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+Open **http://localhost:8000/docs** — click **Authorize** and sign in with:
+
+- **Username:** a demo user email, e.g. `alice@example.com`, `bob@example.com`, or `carol@example.com`
+- **Password:** `password` (shared for the demo)
+
+**Health check (no auth):** `GET http://localhost:8000/health`
