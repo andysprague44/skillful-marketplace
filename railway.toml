@@ -1,0 +1,13 @@
+# Build the FastAPI service from ``api/`` even when Railway clones the
+# monorepo root (so Railpack does not have to “guess” between web/ and api/).
+#
+# https://docs.railway.app/reference/config-as-code
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "api/Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
